@@ -36,12 +36,17 @@ def exclude_id(obj):
     return obj.pop("_id", None)
 
 # Allow all origins
+from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
+
+app = FastAPI()
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["https://legaldeploy.onrender.com"/login],
+    allow_origins=["https://legaldeploy.onrender.com"],
     allow_credentials=True,
-    allow_methods=["GET", "POST", "PUT", "DELETE"],
-    allow_headers=["*"]
+    allow_methods=["GET", "POST", "PUT", "DELETE"],
+    allow_headers=["*"]
 )
 
 client = MongoClient("mongodb+srv://850066763:850066763@cluster0.rmxyg9a.mongodb.net/?retryWrites=true&w=majority")
