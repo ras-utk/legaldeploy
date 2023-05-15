@@ -5,3 +5,4 @@ requests
 bson
 uvicorn
 passlib
+flask-cors
